@@ -14,3 +14,35 @@
  *    Attention, trouvez une solution pour que le fichier contienne du JSON valide !
  * 6. Affichez sur la page index les fichiers ayant déjà été uploadés.
  */
+
+if(isset($_GET['error'])) {
+    if($_GET['error'] === 0) {
+        echo "<div>Envoi avec success</div>";
+    }
+}
+
+
+
+?>
+
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+<body>
+    <div id="container">
+        <form action="fichier.php" method="post">
+            <div>
+                <label for="file"></label>
+                <input type="file" id="file" name="file">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
