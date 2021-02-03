@@ -30,7 +30,7 @@
 if(isset($_GET['error'])) {
     $error = $_GET['error'];
 
-    if($error === 0) {
+    if($error === "0") {
         echo "<div>Envoi avec success</div>";
     }
     elseif($error === "La taille du fichier est trop grande (max 3 mo)") {
@@ -40,7 +40,7 @@ if(isset($_GET['error'])) {
         echo "<div>" . $error. "</div>";
     }
     elseif($error === "Il s'est produit une erreur lors de l'upload") {
-        echo "<div>Bonjour</div>";
+        echo "<div>" . $error . "</div>";
     }
 
 }
