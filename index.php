@@ -14,15 +14,6 @@
  *    Attention, trouvez une solution pour que le fichier contienne du JSON valide !
  * 6. Affichez sur la page index les fichiers ayant déjà été uploadés.
  */
-
-if(isset($_GET['error'])) {
-    if($_GET['error'] === 0) {
-        echo "<div>Envoi avec success</div>";
-    }
-}
-
-
-
 ?>
 
 <!doctype html>
@@ -35,10 +26,30 @@ if(isset($_GET['error'])) {
     <title>Index</title>
 </head>
 <body>
+<?php
+if(isset($_GET['error'])) {
+    $error = $_GET['error'];
+
+    if($error === 0) {
+        echo "<div>Envoi avec success</div>";
+    }
+    elseif($error === "La taille du fichier est trop grande (max 3 mo)") {
+        echo "<div>" . $error. "</div>";
+    }
+    elseif($error === "Le type de fichier n'est pas valide") {
+        echo "<div>" . $error. "</div>";
+    }
+    elseif($error === "Il s'est produit une erreur lors de l'upload") {
+        echo "<div>Bonjour</div>";
+    }
+
+}
+
+?>
     <div id="container">
-        <form action="fichier.php" method="post">
+        <form action="fichier.php" method="POST">
             <div>
-                <label for="file"></label>
+                <label for="file">Votre fichier: </label>
                 <input type="file" id="file" name="file">
                 <input type="submit">
             </div>
